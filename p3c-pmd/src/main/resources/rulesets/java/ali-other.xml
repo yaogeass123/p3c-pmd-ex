@@ -87,6 +87,13 @@ Positive example:
         <priority>3</priority>
     </rule>
 
+    <rule name="CheckNameAnnotationRule" language="java"
+      message="java.other.CheckNameAnnotationRule.rule.msg"
+      class="com.alibaba.p3c.pmd.lang.java.rule.other.CheckNameAnnotationRule">
+        <description>java.other.CheckNameAnnotationRule.rule.desc</description>
+        <priority>3</priority>
+    </rule>
+
     <rule name="UseRightCaseForDateFormatRule" language="java"
           message="java.other.UseRightCaseForDateFormatRule.rule.msg"
           class="com.alibaba.p3c.pmd.lang.java.rule.other.UseRightCaseForDateFormatRule">

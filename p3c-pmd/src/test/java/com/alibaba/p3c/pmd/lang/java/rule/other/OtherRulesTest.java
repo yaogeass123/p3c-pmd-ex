@@ -31,13 +31,14 @@ public class OtherRulesTest extends SimpleAggregatorTst {
 
     @Override
     public void setUp() {
-        addRule(RULESET, "AvoidApacheBeanUtilsCopyRule");
-        addRule(RULESET, "AvoidNewDateGetTimeRule");
-        addRule(RULESET, "AvoidPatternCompileInMethodRule");
-        addRule(RULESET, "AvoidMissUseOfMathRandomRule");
-        addRule(RULESET, "MethodTooLongRule");
-        addRule(RULESET,"UseRightCaseForDateFormatRule");
-        addRule(RULESET,"AvoidDoubleOrFloatEqualCompareRule");
+        addRule(RULESET, "CheckNameAnnotationRule");
+//        addRule(RULESET, "AvoidApacheBeanUtilsCopyRule");
+//        addRule(RULESET, "AvoidNewDateGetTimeRule");
+//        addRule(RULESET, "AvoidPatternCompileInMethodRule");
+//        addRule(RULESET, "AvoidMissUseOfMathRandomRule");
+//        addRule(RULESET, "MethodTooLongRule");
+//        addRule(RULESET,"UseRightCaseForDateFormatRule");
+//        addRule(RULESET,"AvoidDoubleOrFloatEqualCompareRule");
     }
 
 

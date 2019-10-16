@@ -551,5 +551,10 @@ Positive example:
     <entry key="java.other.AvoidDoubleOrFloatEqualCompareRule.rule.msg">
         <![CDATA[To judge the equivalence of floating-point numbers, == cannot be used for primitive types, while equals cannot be used for wrapper classes.]]>
     </entry>
-
+    <entry key="java.other.CheckNameAnnotationRule.rule.msg">
+        <![CDATA[@Value annotation does not use SpEL]]>
+    </entry>
+    <entry key="java.other.CheckNameAnnotationRule.rule.desc">
+        <![CDATA[@Value annotation does not use SpEL]]>
+    </entry>
 </properties>

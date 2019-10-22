@@ -26,9 +26,9 @@ public class CheckNameAnnotationRule extends AbstractAliRule {
 
     @Override
     public Object visit(ASTSingleMemberAnnotation annotation, Object data) {
-
         if (ANNOTATION_NAME.equals(annotation.getAnnotationName())) {
             ASTMemberValue memberValue = annotation.getMemberValue();
+
             if (Objects.isNull(memberValue)) {
                 return super.visit(annotation, data);
             }

@@ -11,103 +11,6 @@
   <artifactId>p3c-pmd-ex</artifactId>
   <version>2.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>p3c-pmd</name>
-  <properties>
-    <sonatypeOssDistMgmtSnapshotsUrl>https://oss.sonatype.org/content/repositories/snapshots/</sonatypeOssDistMgmtSnapshotsUrl>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <pmd.version>6.15.0</pmd.version>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <annotation.version>1.3.2</annotation.version>
-  </properties>
-  <distributionManagement>
-    <snapshotRepository>
-      <id>Snapshots</id>
-      <name>Local Nexus Repository</name>
-      <url>http://192.168.1.177:8081/nexus/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
-  <description>Alibaba Java Coding Guidelines PMD implementations</description>
-  <url>https://github.com/alibaba/p3c</url>
-  <inceptionYear>2017</inceptionYear>
-
-  <licenses>
-    <license>
-      <name>Apache 2</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-      <distribution>repo</distribution>
-      <comments>A business-friendly OSS license</comments>
-    </license>
-  </licenses>
-
-  <scm>
-    <url>https://github.com/alibaba/p3c</url>
-    <connection>scm:git:https://git@github.com/alibaba/p3c.git</connection>
-  </scm>
-
-  <organization>
-    <name>Alibaba Group</name>
-    <url>https://github.com/alibaba</url>
-  </organization>
-
-  <developers>
-    <developer>
-      <name>XuanTan</name>
-      <url>https://github.com/xuantan</url>
-      <email>zhangym124@gmail.com</email>
-    </developer>
-    <developer>
-      <name>ChangLe</name>
-      <url>https://github.com/LQZYC</url>
-      <email>lqleo323@gmail.com</email>
-    </developer>
-    <developer>
-      <name>ZengHou</name>
-      <url>https://github.com/fw8899</url>
-      <email>fengwei1983@gmail.com</email>
-    </developer>
-    <developer>
-      <name>ShengYan</name>
-      <url>http://smiler158.github.io/</url>
-      <email>smiler158@163.com</email>
-    </developer>
-    <developer>
-      <name>KeQi</name>
-      <email>lyzw2009@gmail.com</email>
-    </developer>
-    <developer>
-      <name>JunLie</name>
-      <url>https://github.com/SeanCai</url>
-      <email>sean.caikang@gmail.com</email>
-    </developer>
-    <developer>
-      <name>MoYan</name>
-      <url>https://github.com/imu2008</url>
-      <email>panhuawenmail@gmail.com</email>
-    </developer>
-  </developers>
-  <dependencies>
-    <dependency>
-      <groupId>net.sourceforge.pmd</groupId>
-      <artifactId>pmd-java</artifactId>
-      <version>${pmd.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>net.sourceforge.pmd</groupId>
-      <artifactId>pmd-vm</artifactId>
-      <version>${pmd.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>net.sourceforge.pmd</groupId>
-      <artifactId>pmd-test</artifactId>
-      <version>${pmd.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>javax.annotation</groupId>
-      <artifactId>javax.annotation-api</artifactId>
-      <version>${annotation.version}</version>
-    </dependency>
-  </dependencies>
   <build>
     <plugins>
       <plugin>
@@ -119,16 +22,7 @@
           <targetJdk>${maven.compiler.target}</targetJdk>
           <printFailingErrors>true</printFailingErrors>
           <rulesets>
-            <ruleset>rulesets/java/ali-comment.xml</ruleset>
-            <ruleset>rulesets/java/ali-concurrent.xml</ruleset>
-            <ruleset>rulesets/java/ali-constant.xml</ruleset>
-            <ruleset>rulesets/java/ali-exception.xml</ruleset>
-            <ruleset>rulesets/java/ali-flowcontrol.xml</ruleset>
-            <ruleset>rulesets/java/ali-naming.xml</ruleset>
-            <ruleset>rulesets/java/ali-oop.xml</ruleset>
-            <ruleset>rulesets/java/ali-orm.xml</ruleset>
-            <ruleset>rulesets/java/ali-other.xml</ruleset>
-            <ruleset>rulesets/java/ali-set.xml</ruleset>
+            <ruleset>rulesets/java/ali-ex.xml</ruleset>
           </rulesets>
           <excludes>
             <exclude>**/FixClassTypeResolver.java</exclude>
@@ -145,8 +39,8 @@
         <dependencies>
           <dependency>
             <groupId>com.alibaba.p3c</groupId>
-            <artifactId>p3c-pmd</artifactId>
-            <version>2.0.0</version>
+            <artifactId>p3c-pmd-ex</artifactId>
+            <version>2.0.0-SNAPSHOT</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -214,4 +108,103 @@
        </plugin>-->
     </plugins>
   </build>
+  <dependencies>
+    <dependency>
+      <artifactId>pmd-java</artifactId>
+      <groupId>net.sourceforge.pmd</groupId>
+      <version>${pmd.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>pmd-vm</artifactId>
+      <groupId>net.sourceforge.pmd</groupId>
+      <version>${pmd.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>pmd-test</artifactId>
+      <groupId>net.sourceforge.pmd</groupId>
+      <scope>test</scope>
+      <version>${pmd.version}</version>
+    </dependency>
+    <dependency>
+      <artifactId>javax.annotation-api</artifactId>
+      <groupId>javax.annotation</groupId>
+      <version>${annotation.version}</version>
+    </dependency>
+  </dependencies>
+  <description>Alibaba Java Coding Guidelines PMD implementations</description>
+  <developers>
+    <developer>
+      <email>zhangym124@gmail.com</email>
+      <name>XuanTan</name>
+      <url>https://github.com/xuantan</url>
+    </developer>
+    <developer>
+      <email>lqleo323@gmail.com</email>
+      <name>ChangLe</name>
+      <url>https://github.com/LQZYC</url>
+    </developer>
+    <developer>
+      <email>fengwei1983@gmail.com</email>
+      <name>ZengHou</name>
+      <url>https://github.com/fw8899</url>
+    </developer>
+    <developer>
+      <email>smiler158@163.com</email>
+      <name>ShengYan</name>
+      <url>http://smiler158.github.io/</url>
+    </developer>
+    <developer>
+      <email>lyzw2009@gmail.com</email>
+      <name>KeQi</name>
+    </developer>
+    <developer>
+      <email>sean.caikang@gmail.com</email>
+      <name>JunLie</name>
+      <url>https://github.com/SeanCai</url>
+    </developer>
+    <developer>
+      <email>panhuawenmail@gmail.com</email>
+      <name>MoYan</name>
+      <url>https://github.com/imu2008</url>
+    </developer>
+  </developers>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>Snapshots</id>
+      <name>Local Nexus Repository</name>
+      <url>http://192.168.1.177:8081/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <inceptionYear>2017</inceptionYear>
+
+  <licenses>
+    <license>
+      <comments>A business-friendly OSS license</comments>
+      <distribution>repo</distribution>
+      <name>Apache 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <name>p3c-pmd-ex</name>
+
+  <organization>
+    <name>Alibaba Group</name>
+    <url>https://github.com/alibaba</url>
+  </organization>
+
+  <properties>
+    <annotation.version>1.3.2</annotation.version>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <pmd.version>6.15.0</pmd.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <sonatypeOssDistMgmtSnapshotsUrl>
+      http://192.168.1.177:8081/nexus/content/repositories/snapshots/
+    </sonatypeOssDistMgmtSnapshotsUrl>
+  </properties>
+  <scm>
+    <connection>scm:git:https://git@github.com/alibaba/p3c.git</connection>
+    <url>https://github.com/alibaba/p3c</url>
+  </scm>
+  <url>https://github.com/alibaba/p3c</url>
 </project>

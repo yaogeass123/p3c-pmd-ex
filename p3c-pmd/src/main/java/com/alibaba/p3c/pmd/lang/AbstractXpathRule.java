@@ -15,8 +15,7 @@
  */
 package com.alibaba.p3c.pmd.lang;
 
-import com.alibaba.p3c.pmd.I18nResources;
-
+import com.alibaba.p3c.pmd.I18nResourcesEx;
 import net.sourceforge.pmd.lang.ast.Node;
 import net.sourceforge.pmd.lang.rule.XPathRule;
 
@@ -27,22 +26,23 @@ import net.sourceforge.pmd.lang.rule.XPathRule;
 public abstract class AbstractXpathRule extends XPathRule {
     @Override
     public void setDescription(String description) {
-        super.setDescription(I18nResources.getMessageWithExceptionHandled(description));
+        super.setDescription(I18nResourcesEx.getMessageWithExceptionHandled(description));
     }
 
     @Override
     public void setMessage(String message) {
-        super.setMessage(I18nResources.getMessageWithExceptionHandled(message));
+        super.setMessage(I18nResourcesEx.getMessageWithExceptionHandled(message));
     }
 
     @Override
     public void addViolationWithMessage(Object data, Node node, String message) {
-        super.addViolationWithMessage(data, node, I18nResources.getMessageWithExceptionHandled(message));
+        super.addViolationWithMessage(data, node,
+                I18nResourcesEx.getMessageWithExceptionHandled(message));
     }
 
     @Override
     public void addViolationWithMessage(Object data, Node node, String message, Object[] args) {
         super.addViolationWithMessage(data, node,
-            String.format(I18nResources.getMessageWithExceptionHandled(message), args));
+                String.format(I18nResourcesEx.getMessageWithExceptionHandled(message), args));
     }
 }

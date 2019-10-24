@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="AlibabaJavaExs"
+  xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+  xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+  <description>AlibabaJavaExs</description>
+
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.CheckNameAnnotationRule" language="java"
+    message="java.ex.CheckNameAnnotationRule.rule.msg"
+    name="CheckNameAnnotationRule">
+    <description>java.ex.CheckNameAnnotationRule.rule.desc</description>
+    <priority>3</priority>
+  </rule>
+
+</ruleset>

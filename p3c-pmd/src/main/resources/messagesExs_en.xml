@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="vm.other.UseQuietReferenceNotationRule.rule.msg">
+    <![CDATA[Variables must add exclamatory mark when passing to velocity engine from backend, ${var}--add '!' after '$'.]]>
+  </entry>
+  <entry key="vm.other.UseQuietReferenceNotationRule.rule.desc">
+    <![CDATA[
+Note: If attribute is null or does not exist, ${var} will be shown directly on web pages.
+        ]]>
+  </entry>
+  <entry key="java.ex.CheckNameAnnotationRule.rule.msg">
+    <![CDATA[@Value annotation does not use SpEL]]>
+  </entry>
+  <entry key="java.ex.CheckNameAnnotationRule.rule.desc">
+    <![CDATA[@Value annotation does not use SpEL]]>
+  </entry>
+</properties>

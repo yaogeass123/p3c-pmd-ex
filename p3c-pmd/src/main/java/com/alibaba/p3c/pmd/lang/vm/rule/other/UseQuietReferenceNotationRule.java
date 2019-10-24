@@ -15,12 +15,10 @@
  */
 package com.alibaba.p3c.pmd.lang.vm.rule.other;
 
+import com.alibaba.p3c.pmd.I18nResourcesEx;
+import com.alibaba.p3c.pmd.lang.AbstractXpathRule;
 import java.util.List;
 import java.util.regex.Pattern;
-
-import com.alibaba.p3c.pmd.I18nResources;
-import com.alibaba.p3c.pmd.lang.AbstractXpathRule;
-
 import net.sourceforge.pmd.RuleContext;
 import net.sourceforge.pmd.lang.ast.Node;
 import net.sourceforge.pmd.lang.vm.ast.ASTDirective;
@@ -75,7 +73,8 @@ public class UseQuietReferenceNotationRule extends AbstractXpathRule {
     @Override
     public void addViolation(Object data, Node node, String arg) {
         String name = getIdentifyName((AbstractVmNode)node);
-        String text = I18nResources.getMessage("vm.other.UseQuietReferenceNotationRule.violation.msg", name);
+        String text = I18nResourcesEx
+                .getMessage("vm.other.UseQuietReferenceNotationRule.violation.msg", name);
         addViolationWithMessage(data, node, text);
     }
 

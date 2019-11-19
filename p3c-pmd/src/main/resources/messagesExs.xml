@@ -17,4 +17,11 @@
     <![CDATA[建议：如果想使用外部注入值，请使用SpELl表达式]]>
   </entry>
 
+  <entry key="java.ex.LogErrorRule.rule.msg">
+    <![CDATA[日志等级请使用error]]>
+  </entry>
+  <entry key="java.ex.LogErrorRule.rule.desc">
+    <![CDATA[若想打印错误日志，日志等级请使用error]]>
+  </entry>
+
 </properties>

@@ -15,4 +15,10 @@ Note: If attribute is null or does not exist, ${var} will be shown directly on w
   <entry key="java.ex.CheckNameAnnotationRule.rule.desc">
     <![CDATA[@Value annotation does not use SpEL]]>
   </entry>
+  <entry key="java.ex.LogErrorRule.rule.msg">
+    <![CDATA[1]]>
+  </entry>
+  <entry key="java.ex.LogErrorRule.rule.desc">
+    <![CDATA[22]]>
+  </entry>
 </properties>

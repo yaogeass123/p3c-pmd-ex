@@ -20,7 +20,7 @@ public class CheckNameAnnotationRule extends AbstractAliRuleEx {
 
     private static final String PART = "\"(.)*:(.)*\"";
 
-    private static final String PART_RIGHT = "\"\\$\\{(\\w|-)+:(\\w|-)+}\"";
+    private static final String PART_RIGHT = "\"\\$\\{(\\w|-)+:(.)+}\"";
 
     private static final String MESSAGE_KEY_PREFIX = "java.ex.CheckNameAnnotationRule.rule.msg";
 

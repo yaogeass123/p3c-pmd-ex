@@ -12,4 +12,11 @@
     <priority>3</priority>
   </rule>
 
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.LogErrorRule" language="java"
+    message="java.ex.LogErrorRule.rule.msg"
+    name="LogErrorRule">
+    <description>java.ex.LogErrorRule.rule.desc</description>
+    <priority>1</priority>
+  </rule>
+
 </ruleset>

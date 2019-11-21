@@ -19,4 +19,11 @@
     <priority>1</priority>
   </rule>
 
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.TransactionInvalidRule" language="java"
+    message="java.ex.TransactionInvalidRule.rule.msg"
+    name="TransactionInvalidRule">
+    <description>java.ex.TransactionInvalidRule.rule.desc</description>
+    <priority>1</priority>
+  </rule>
+
 </ruleset>

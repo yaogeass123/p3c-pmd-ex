@@ -23,5 +23,11 @@
   <entry key="java.ex.LogErrorRule.rule.desc">
     <![CDATA[若想打印错误日志，日志等级请使用error]]>
   </entry>
+  <entry key="java.ex.TransactionInvalidRule.rule.msg">
+    <![CDATA[事务可能失效]]>
+  </entry>
+  <entry key="java.ex.TransactionInvalidRule.rule.desc">
+    <![CDATA[事务可能失效]]>
+  </entry>
 
 </properties>

@@ -18,7 +18,7 @@ import org.jaxen.JaxenException;
 
 
 /**
- * @author Administrator
+ * @author Polaris
  */
 public class LogErrorRule extends AbstractAliRuleEx {
 

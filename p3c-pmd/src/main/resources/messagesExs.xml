@@ -29,5 +29,11 @@
   <entry key="java.ex.TransactionInvalidRule.rule.desc">
     <![CDATA[事务可能失效]]>
   </entry>
+  <entry key="java.ex.OptimisticUpdateRule.rule.msg">
+    <![CDATA[请使用乐观更新]]>
+  </entry>
+  <entry key="java.ex.OptimisticUpdateRule.rule.desc">
+    <![CDATA[请使用乐观更新]]>
+  </entry>
 
 </properties>

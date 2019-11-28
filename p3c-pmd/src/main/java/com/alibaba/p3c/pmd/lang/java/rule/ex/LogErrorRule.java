@@ -79,8 +79,7 @@ public class LogErrorRule extends AbstractAliRuleEx {
                 addViolationWithMessage(data, targetNode.jjtGetChild(0).jjtGetChild(0),
                         MESSAGE_KEY_PREFIX);
             }
-        } catch (JaxenException e) {
-            //写文件记录？
+        } catch (JaxenException ignore) {
         }
         return super.visit(node, data);
     }

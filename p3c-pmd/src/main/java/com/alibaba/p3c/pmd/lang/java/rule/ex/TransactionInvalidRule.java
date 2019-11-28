@@ -5,6 +5,7 @@ import com.beust.jcommander.internal.Lists;
 import com.beust.jcommander.internal.Maps;
 import java.util.List;
 import java.util.Map;
+import net.sourceforge.pmd.lang.ast.GenericToken;
 import net.sourceforge.pmd.lang.ast.Node;
 import net.sourceforge.pmd.lang.java.ast.ASTAnnotation;
 import net.sourceforge.pmd.lang.java.ast.ASTArgumentList;
@@ -33,12 +34,12 @@ public class TransactionInvalidRule extends AbstractAliRuleEx {
             + "[PrimaryPrefix/Name[@Image='%s'] and PrimarySuffix/Arguments]";
     private static final String THIS_FUNCTION_XPATH =
             "//Statement/StatementExpression/PrimaryExpression"
-                    + "[PrimaryPrefix and PrimarySuffix[@Image='%s'] and PrimarySuffix/Arguments]";
+                    + "[PrimaryPrefix[@ThisModifier='true'] and PrimarySuffix[@Image='%s'] and PrimarySuffix/Arguments]";
     private static final String LOCAL_VAR_XPATH =
-            "//BlockStatement//LocalVariableDeclaration" + "[VariableDeclarator[@Name='%s']]";
-    private static final String ARGS_VAR_XPATH = "//MethodDeclaration//MethodDeclarator//"
-            + "FormalParameters//FormalParameter[VariableDeclaratorId[@Image='%s']]";
-    private static final String GLOBAL_VAR_XPATH = "//ClassOrInterfaceBodyDeclaration//"
+            "//BlockStatement/LocalVariableDeclaration" + "[VariableDeclarator[@Name='%s']]";
+    private static final String ARGS_VAR_XPATH = "//MethodDeclaration/MethodDeclarator/"
+            + "FormalParameters/FormalParameter[VariableDeclaratorId[@Image='%s']]";
+    private static final String GLOBAL_VAR_XPATH = "//ClassOrInterfaceBodyDeclaration/"
             + "FieldDeclaration[VariableDeclarator[@Name='%s']]";
 
     @Override
@@ -58,6 +59,7 @@ public class TransactionInvalidRule extends AbstractAliRuleEx {
                     if (!list.isEmpty()) {
                         list.forEach(param -> {
                             if (param.getTypeDefinition() != null) {
+                                //基础类型
                                 args.add(param.getTypeDefinition().getType().getName());
                             } else {
                                 args.add(param.getTypeNode().getTypeImage());
@@ -65,12 +67,20 @@ public class TransactionInvalidRule extends AbstractAliRuleEx {
                         });
                     }
                 }
+                //this.
                 String thisXpath = String.format(THIS_FUNCTION_XPATH, methodName);
                 String functionXpath = String.format(FUNCTION_XPATH, methodName);
                 List<ASTPrimaryExpression> expressions = Lists.newArrayList();
                 try {
                     List<Node> targetNodes = node.findChildNodesWithXPath(thisXpath);
-                    targetNodes.forEach(x -> expressions.add((ASTPrimaryExpression) x));
+                    targetNodes.forEach(x -> {
+                        //this.save与this.xxx.save
+                        ASTPrimaryExpression expression = (ASTPrimaryExpression) x;
+                        GenericToken token = expression.jjtGetFirstToken();
+                        if (methodName.equals(token.getNext().getNext().getImage())) {
+                            expressions.add(expression);
+                        }
+                    });
                     targetNodes = node.findChildNodesWithXPath(functionXpath);
                     targetNodes.forEach(x -> expressions.add((ASTPrimaryExpression) x));
                     for (ASTPrimaryExpression expression : expressions) {
@@ -78,8 +88,7 @@ public class TransactionInvalidRule extends AbstractAliRuleEx {
                             addViolationWithMessage(data, expression, MESSAGE_KEY_PREFIX);
                         }
                     }
-                } catch (JaxenException e) {
-                    e.printStackTrace();
+                } catch (JaxenException ignore) {
                 }
             }
 
@@ -95,7 +104,6 @@ public class TransactionInvalidRule extends AbstractAliRuleEx {
      */
     private boolean check(ASTPrimaryExpression expression, List<String> args)
             throws JaxenException {
-        ASTMethodDeclaration parent = expression.getFirstParentOfType(ASTMethodDeclaration.class);
         Node suffix = expression.jjtGetChild(expression.jjtGetNumChildren() - 1);
         if (suffix instanceof ASTPrimarySuffix) {
             ASTPrimarySuffix arguments = (ASTPrimarySuffix) suffix;
@@ -178,9 +186,8 @@ public class TransactionInvalidRule extends AbstractAliRuleEx {
      * @param targetType 目标类型
      * @param exp 参数的表达式
      * @param varName 名称
-     * @return true: 二者类型相同 false：类型不同或者存在本地变量
+     * @return 1: 二者类型相同 0：类型不同 -1:未找到匹配
      */
-
     private int localDeclarationCheck(ASTPrimaryExpression expression, String targetType,
             ASTExpression exp, String varName) throws JaxenException {
         String path = String.format(LOCAL_VAR_XPATH, varName);
@@ -194,6 +201,7 @@ public class TransactionInvalidRule extends AbstractAliRuleEx {
                 int count = 1;
                 for (ASTBlock expBlock : expBlocks) {
                     if (localBlock.equals(expBlock)) {
+                        //不会出现count相同的情况
                         blockMap.put(count, localVariableDeclaration);
                         break;
                     }
@@ -238,7 +246,6 @@ public class TransactionInvalidRule extends AbstractAliRuleEx {
                 String type = fieldDeclaration.getFirstChildOfType(ASTType.class).getTypeImage();
                 return targetType.equals(type) ? 1 : 0;
             }
-
         }
         return -1;
     }

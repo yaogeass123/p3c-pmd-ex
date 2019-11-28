@@ -26,4 +26,11 @@
     <priority>1</priority>
   </rule>
 
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.OptimisticUpdateRule" language="java"
+    message="java.ex.OptimisticUpdateRule.rule.msg"
+    name="OptimisticUpdateRule">
+    <description>java.ex.OptimisticUpdateRule.rule.desc</description>
+    <priority>2</priority>
+  </rule>
+
 </ruleset>

@@ -16,7 +16,6 @@
 package com.alibaba.p3c.pmd.lang.java.util;
 
 import java.util.List;
-
 import net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit;
 import net.sourceforge.pmd.lang.java.ast.ASTImportDeclaration;
 
@@ -24,7 +23,7 @@ import net.sourceforge.pmd.lang.java.ast.ASTImportDeclaration;
  * @author caikang
  * @date 2017/06/21
  */
-public class GeneratedCodeUtils {
+public class GeneratedCodeUtilsEx extends  GeneratedCodeUtils{
     private static final String ANNOTATION_NAME = "javax.annotation.Generated";
 
     private static final String CLASS = "class";

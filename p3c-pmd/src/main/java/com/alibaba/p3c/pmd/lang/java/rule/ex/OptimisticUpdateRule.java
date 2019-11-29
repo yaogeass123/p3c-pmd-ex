@@ -1,7 +1,7 @@
 package com.alibaba.p3c.pmd.lang.java.rule.ex;
 
 import com.alibaba.p3c.pmd.lang.java.rule.AbstractAliRuleEx;
-import com.alibaba.p3c.pmd.lang.java.util.namelist.NameListConfig;
+import com.alibaba.p3c.pmd.lang.java.util.namelist.NameListConfigEx;
 import java.util.List;
 import net.sourceforge.pmd.lang.ast.GenericToken;
 import net.sourceforge.pmd.lang.ast.Node;
@@ -17,16 +17,15 @@ import org.jaxen.JaxenException;
  */
 public class OptimisticUpdateRule extends AbstractAliRuleEx {
 
-    private static final List<String> TARGET_FUNCTION_NAME = NameListConfig.NAME_LIST_SERVICE
-            .getNameList("OptimisticUpdateRule", "TARGET_FUNCTION_NAME_LIST");
     private static final String MESSAGE_KEY_PREFIX = "java.ex.OptimisticUpdateRule.rule.msg";
+    private static final List<String> TARGET_FUNCTION_NAME = NameListConfigEx.NAME_LIST_SERVICE
+            .getNameList("OptimisticUpdateRule", "TARGET_FUNCTION_NAME_LIST");
     private static final String MANAGER_SUFFIX = "Manager";
     private static final String MAPPER = "Mapper";
     private static final String TARGET_XPATH_FORM = "//Statement/StatementExpression/"
             + "PrimaryExpression[PrimaryPrefix/Name[ends-with(@Image,'%s')] and PrimarySuffix/Arguments]";
-    private static final String THIS_FUNCTION_XPATH =
-            "//Statement/StatementExpression/PrimaryExpression"
-                    + "[PrimaryPrefix[@ThisModifier='true'] and PrimarySuffix[@Image='%s'] and PrimarySuffix/Arguments]";
+    private static final String THIS_FUNCTION_XPATH = "//Statement/StatementExpression/PrimaryExpression"
+            + "[PrimaryPrefix[@ThisModifier='true'] and PrimarySuffix[@Image='%s'] and PrimarySuffix/Arguments]";
 
     @Override
     public Object visit(ASTCompilationUnit node, Object data) {
@@ -61,7 +60,10 @@ public class OptimisticUpdateRule extends AbstractAliRuleEx {
             GenericToken name = thisModifier.getNext().getNext();
             String variableName = name.getImage();
             if (variableName.endsWith(MAPPER)) {
-                addViolationWithMessage(data, targetNode, MESSAGE_KEY_PREFIX);
+                GenericToken functionToken = name.getNext().getNext();
+                if (functionName.equals(functionToken.getImage())){
+                    addViolationWithMessage(data, targetNode, MESSAGE_KEY_PREFIX);
+                }
             }
         }
     }

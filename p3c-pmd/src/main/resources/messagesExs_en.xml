@@ -16,9 +16,21 @@ Note: If attribute is null or does not exist, ${var} will be shown directly on w
     <![CDATA[@Value annotation does not use SpEL]]>
   </entry>
   <entry key="java.ex.LogErrorRule.rule.msg">
-    <![CDATA[1]]>
+    <![CDATA[3]]>
   </entry>
   <entry key="java.ex.LogErrorRule.rule.desc">
-    <![CDATA[22]]>
+    <![CDATA[3]]>
+  </entry>
+  <entry key="java.ex.TransactionInvalidRule.rule.msg">
+    <![CDATA[4]]>
+  </entry>
+  <entry key="java.ex.TransactionInvalidRule.rule.desc">
+    <![CDATA[4]]>
+  </entry>
+  <entry key="java.ex.OptimisticUpdateRule.rule.msg">
+    <![CDATA[5]]>
+  </entry>
+  <entry key="java.ex.OptimisticUpdateRule.rule.desc">
+    <![CDATA[5]]>
   </entry>
 </properties>

@@ -15,10 +15,8 @@
  */
 package com.alibaba.p3c.pmd.lang.java.util;
 
+import com.alibaba.p3c.pmd.lang.java.util.namelist.NameListConfigEx;
 import java.util.List;
-
-import com.alibaba.p3c.pmd.lang.java.util.namelist.NameListConfig;
-
 import net.sourceforge.pmd.lang.java.ast.ASTClassOrInterfaceDeclaration;
 
 /**
@@ -27,11 +25,11 @@ import net.sourceforge.pmd.lang.java.ast.ASTClassOrInterfaceDeclaration;
  * @author zenghou.fw
  * @date 2016/11/25
  */
-public class PojoUtils {
+public class PojoUtilsEx {
     private static final List<String> POJO_SUFFIX_SET =
-        NameListConfig.NAME_LIST_SERVICE.getNameList("PojoMustOverrideToStringRule", "POJO_SUFFIX_SET");
+        NameListConfigEx.NAME_LIST_SERVICE.getNameList("PojoMustOverrideToStringRule", "POJO_SUFFIX_SET");
 
-    private PojoUtils() {
+    private PojoUtilsEx() {
     }
 
     public static boolean isPojo(String klass) {

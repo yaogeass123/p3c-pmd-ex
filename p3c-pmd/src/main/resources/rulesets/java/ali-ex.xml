@@ -30,7 +30,7 @@
     message="java.ex.OptimisticUpdateRule.rule.msg"
     name="OptimisticUpdateRule">
     <description>java.ex.OptimisticUpdateRule.rule.desc</description>
-    <priority>2</priority>
+    <priority>3</priority>
   </rule>
 
 </ruleset>

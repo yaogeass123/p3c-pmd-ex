@@ -15,7 +15,7 @@
  */
 package com.alibaba.p3c.pmd.lang.java.rule;
 
-import com.alibaba.p3c.pmd.lang.java.util.PojoUtils;
+import com.alibaba.p3c.pmd.lang.java.util.PojoUtilsEx;
 import java.util.List;
 import net.sourceforge.pmd.lang.java.ast.ASTClassOrInterfaceDeclaration;
 import net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit;
@@ -26,7 +26,7 @@ import net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit;
  * @author zenghou.fw
  * @date 2016/11/25
  */
-public abstract class AbstractPojoRule extends AbstractAliRuleEx {
+public abstract class AbstractPojoRuleEx extends AbstractAliRuleEx {
 
     /**
      * filter for all POJO class,skip if no POJO.
@@ -62,6 +62,6 @@ public abstract class AbstractPojoRule extends AbstractAliRuleEx {
     }
 
     protected boolean isPojo(ASTClassOrInterfaceDeclaration node) {
-        return PojoUtils.isPojo(node);
+        return PojoUtilsEx.isPojo(node);
     }
 }

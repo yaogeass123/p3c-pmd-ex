@@ -15,32 +15,31 @@
  */
 package com.alibaba.p3c.pmd.lang.java.util.namelist;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 /**
  * @author changle.lq
  * @date 2017/03/27
  */
-public class NameListServiceImpl implements NameListService {
+public class NameListServiceExImpl implements NameListService {
 
-    private static final String NAME_LIST_PROPERTY_FILE_NAME = "namelist.properties";
+    private static final String NAME_LIST_PROPERTY_FILE_NAME = "namelistEx.properties";
     private static final Properties PROPERTIES = initProperties();
     private static final String SEPARATOR = "_";
 
     private static Properties initProperties() {
         LinkedProperties props = new LinkedProperties();
-        ClassLoader classLoader = NameListServiceImpl.class.getClassLoader();
+        ClassLoader classLoader = NameListServiceExImpl.class.getClassLoader();
         try {
             props.load(classLoader.getResourceAsStream(NAME_LIST_PROPERTY_FILE_NAME));
         } catch (IOException ex) {
-            throw new IllegalStateException("Load namelist.properties fail", ex);
+            throw new IllegalStateException("Load namelistEx.properties fail", ex);
         }
         return props;
     }

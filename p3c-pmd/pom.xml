@@ -130,8 +130,13 @@
       <groupId>javax.annotation</groupId>
       <version>${annotation.version}</version>
     </dependency>
+    <dependency>
+      <groupId>com.alibaba.p3c</groupId>
+      <artifactId>p3c-pmd</artifactId>
+      <version>2.0.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
-  <description>Alibaba Java Coding Guidelines PMD implementations</description>
+  <description>Alibaba Java Coding Guidelines PMD implementations ex</description>
   <developers>
     <developer>
       <email>zhangym124@gmail.com</email>

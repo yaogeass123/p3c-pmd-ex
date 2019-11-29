@@ -15,16 +15,15 @@
  */
 package com.alibaba.p3c.pmd.lang.java.util;
 
+import com.alibaba.p3c.pmd.lang.java.util.namelist.NameListConfigEx;
 import java.util.ServiceLoader;
 import java.util.concurrent.ConcurrentHashMap;
-
-import com.alibaba.p3c.pmd.lang.java.util.namelist.NameListConfig;
 
 /**
  * @author changle.lq
  * @date 2017/04/01
  */
-public class SpiLoader {
+public class SpiLoaderEx {
     private final static ConcurrentHashMap<Class<?>, Object> INSTANCE_CACHE = new ConcurrentHashMap<Class<?>, Object>();
 
     @SuppressWarnings("unchecked")
@@ -35,7 +34,7 @@ public class SpiLoader {
             return instance;
         }
         try {
-            instance = ServiceLoader.load(classType, NameListConfig.class.getClassLoader()).iterator().next();
+            instance = ServiceLoader.load(classType, NameListConfigEx.class.getClassLoader()).iterator().next();
             if (instance == null) {
                 return null;
             }

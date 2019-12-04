@@ -25,13 +25,14 @@ import net.sourceforge.pmd.testframework.SimpleAggregatorTst;
  */
 public class ExRulesTest extends SimpleAggregatorTst {
 
-    public static final String RULESET = "java-ali-ex";
+    private static final String RULESET = "java-ali-ex";
 
     @Override
     public void setUp() {
 //        addRule(RULESET, "LogErrorRule");
-        addRule(RULESET, "TransactionInvalidRule");
+//        addRule(RULESET, "TransactionInvalidRule");
 //        addRule(RULESET, "OptimisticUpdateRule");
+        addRule(RULESET, "PojoVariableNameRule");
     }
 
 

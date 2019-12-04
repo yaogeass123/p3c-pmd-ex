@@ -35,5 +35,10 @@
   <entry key="java.ex.OptimisticUpdateRule.rule.desc">
     <![CDATA[请使用乐观更新]]>
   </entry>
-
+  <entry key="java.ex.PojoVariableNameRule.rule.msg">
+    <![CDATA[POJO类中变量不要以is前缀]]>
+  </entry>
+  <entry key="java.ex.PojoVariableNameRule.rule.desc">
+    <![CDATA[POJO 类中布尔类型的变量，都不要加 is 前缀，否则部分框架解析会引起序列化错误]]>
+  </entry>
 </properties>

@@ -24,8 +24,9 @@ public class OptimisticUpdateRule extends AbstractAliRuleEx {
     private static final String MAPPER = "Mapper";
     private static final String TARGET_XPATH_FORM = "//Statement/StatementExpression/"
             + "PrimaryExpression[PrimaryPrefix/Name[ends-with(@Image,'%s')] and PrimarySuffix/Arguments]";
-    private static final String THIS_FUNCTION_XPATH = "//Statement/StatementExpression/PrimaryExpression"
-            + "[PrimaryPrefix[@ThisModifier='true'] and PrimarySuffix[@Image='%s'] and PrimarySuffix/Arguments]";
+    private static final String THIS_FUNCTION_XPATH =
+            "//Statement/StatementExpression/PrimaryExpression"
+                    + "[PrimaryPrefix[@ThisModifier='true'] and PrimarySuffix[@Image='%s'] and PrimarySuffix/Arguments]";
 
     @Override
     public Object visit(ASTCompilationUnit node, Object data) {
@@ -61,7 +62,7 @@ public class OptimisticUpdateRule extends AbstractAliRuleEx {
             String variableName = name.getImage();
             if (variableName.endsWith(MAPPER)) {
                 GenericToken functionToken = name.getNext().getNext();
-                if (functionName.equals(functionToken.getImage())){
+                if (functionName.equals(functionToken.getImage())) {
                     addViolationWithMessage(data, targetNode, MESSAGE_KEY_PREFIX);
                 }
             }
@@ -78,7 +79,8 @@ public class OptimisticUpdateRule extends AbstractAliRuleEx {
             String name = nameNode.getImage();
             String variableName = name.substring(0, name.lastIndexOf("." + functionName));
             if (variableName.endsWith(MAPPER)) {
-                addViolationWithMessage(data, targetNode, MESSAGE_KEY_PREFIX);
+                addViolationWithMessage(data,
+                        targetNode.getFirstChildOfType(ASTPrimaryPrefix.class), MESSAGE_KEY_PREFIX);
             }
         }
     }

@@ -10,6 +10,7 @@ import net.sourceforge.pmd.lang.ast.Node;
 import net.sourceforge.pmd.lang.java.ast.ASTCatchStatement;
 import net.sourceforge.pmd.lang.java.ast.ASTFieldDeclaration;
 import net.sourceforge.pmd.lang.java.ast.ASTImportDeclaration;
+import net.sourceforge.pmd.lang.java.ast.ASTPrimaryPrefix;
 import net.sourceforge.pmd.lang.java.ast.ASTType;
 import net.sourceforge.pmd.lang.java.ast.ASTVariableDeclarator;
 import net.sourceforge.pmd.lang.java.ast.ASTVariableDeclaratorId;
@@ -76,8 +77,8 @@ public class LogErrorRule extends AbstractAliRuleEx {
         try {
             List<Node> targetNodes = node.findChildNodesWithXPath(replace);
             for (Node targetNode : targetNodes) {
-                addViolationWithMessage(data, targetNode.jjtGetChild(0).jjtGetChild(0),
-                        MESSAGE_KEY_PREFIX);
+                addViolationWithMessage(data,
+                        targetNode.getFirstChildOfType(ASTPrimaryPrefix.class), MESSAGE_KEY_PREFIX);
             }
         } catch (JaxenException ignore) {
         }

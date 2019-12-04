@@ -15,7 +15,7 @@
  */
 package com.alibaba.p3c.pmd.lang.java.util.namelist;
 
-import com.alibaba.p3c.pmd.lang.java.util.SpiLoaderEx;
+import com.alibaba.p3c.pmd.lang.java.util.SpiLoader;
 
 /**
  * @author changle.lq
@@ -25,7 +25,7 @@ public class NameListConfigEx {
     public static final NameListService NAME_LIST_SERVICE = getNameListService();
 
     private static NameListService getNameListService() {
-        NameListService instance  = SpiLoaderEx.getInstance(NameListService.class);
+        NameListService instance  = SpiLoader.getInstance(NameListService.class);
         if (instance == null) {
             instance = new NameListServiceExImpl();
         }

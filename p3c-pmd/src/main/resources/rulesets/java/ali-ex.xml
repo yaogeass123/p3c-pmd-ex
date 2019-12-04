@@ -33,4 +33,11 @@
     <priority>3</priority>
   </rule>
 
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.PojoVariableNameRule" language="java"
+    message="java.ex.PojoVariableNameRule.rule.msg"
+    name="PojoVariableNameRule">
+    <description>java.ex.OptimisticUpdateRule.rule.desc</description>
+    <priority>4</priority>
+  </rule>
+
 </ruleset>

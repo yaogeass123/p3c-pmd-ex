@@ -40,4 +40,11 @@
     <priority>4</priority>
   </rule>
 
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.AvoidAccessModifiersInInterfaceRule" language="java"
+    message="java.ex.AvoidAccessModifiersInInterfaceRule.rule.msg"
+    name="AvoidAccessModifiersInInterfaceRule">
+    <description>java.ex.AvoidAccessModifiersInInterfaceRule.rule.desc</description>
+    <priority>5</priority>
+  </rule>
+
 </ruleset>

@@ -32,7 +32,8 @@ public class ExRulesTest extends SimpleAggregatorTst {
 //        addRule(RULESET, "LogErrorRule");
 //        addRule(RULESET, "TransactionInvalidRule");
 //        addRule(RULESET, "OptimisticUpdateRule");
-        addRule(RULESET, "PojoVariableNameRule");
+//        addRule(RULESET, "PojoVariableNameRule");
+        addRule(RULESET, "AvoidAccessModifiersInInterfaceRule");
     }
 
 

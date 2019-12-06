@@ -37,14 +37,14 @@
     message="java.ex.PojoVariableNameRule.rule.msg"
     name="PojoVariableNameRule">
     <description>java.ex.OptimisticUpdateRule.rule.desc</description>
-    <priority>4</priority>
+    <priority>3</priority>
   </rule>
 
-  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.AvoidAccessModifiersInInterfaceRule" language="java"
-    message="java.ex.AvoidAccessModifiersInInterfaceRule.rule.msg"
-    name="AvoidAccessModifiersInInterfaceRule">
-    <description>java.ex.AvoidAccessModifiersInInterfaceRule.rule.desc</description>
-    <priority>5</priority>
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.EnumNameRule" language="java"
+    message="java.ex.EnumNameRule.rule.msg"
+    name="EnumNameRule">
+    <description>java.ex.EnumNameRule.rule.desc</description>
+    <priority>3</priority>
   </rule>
 
 </ruleset>

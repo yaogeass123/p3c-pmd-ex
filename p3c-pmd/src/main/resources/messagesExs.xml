@@ -41,10 +41,16 @@
   <entry key="java.ex.PojoVariableNameRule.rule.desc">
     <![CDATA[POJO 类中布尔类型的变量，都不要加 is 前缀，否则部分框架解析会引起序列化错误]]>
   </entry>
-  <entry key="java.ex.AvoidAccessModifiersInInterfaceRule.rule.msg">
-    <![CDATA[接口类中的方法和属性不要加任何修饰符号]]>
+  <entry key="java.ex.EnumNameRule.rule.msg">
+    <![CDATA[枚举类名带上 En 后缀]]>
   </entry>
-  <entry key="java.ex.AvoidAccessModifiersInInterfaceRule.rule.desc">
-    <![CDATA[接口类中的方法和属性不要加任何修饰符号，保持代码的简洁性]]>
+  <entry key="java.ex.EnumNameRule.rule.desc">
+    <![CDATA[枚举类名带上 En 后缀]]>
+  </entry>
+  <entry key="java.ex.EnumNameRuleVar.rule.msg">
+    <![CDATA[枚举成员名称需要全大写]]>
+  </entry>
+  <entry key="java.ex.EnumNameRuleVar.rule.desc">
+    <![CDATA[枚举成员名称需要全大写]]>
   </entry>
 </properties>

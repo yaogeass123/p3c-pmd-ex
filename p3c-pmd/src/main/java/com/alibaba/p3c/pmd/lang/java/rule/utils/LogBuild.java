@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * @author polaris
  */
-public class LogXpathBuild {
+public class LogBuild {
 
     private static final String PATTER = "@Image='%s.%s'";
 
@@ -45,7 +45,7 @@ public class LogXpathBuild {
         return String.format(ERROR_SUFFIX, varName);
     }
 
-    public static List<String> buildLogName(Set<String> loggerName) {
+    public static List<String> buildLogCall(Set<String> loggerName) {
         List<String> names = Lists.newArrayList();
         for (String logName : loggerName) {
             for (String method : TARGET_FUNCTION_NAME) {
@@ -53,5 +53,9 @@ public class LogXpathBuild {
             }
         }
         return names;
+    }
+
+    public static String addImageWords(String str){
+        return "@Image='" + str + "'";
     }
 }

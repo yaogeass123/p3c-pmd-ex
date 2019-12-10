@@ -1,9 +1,9 @@
 package com.alibaba.p3c.pmd.lang.java.rule.ex;
 
-import static com.alibaba.p3c.pmd.lang.java.rule.utils.LogXpathBuild.buildLogXpath;
+import static com.alibaba.p3c.pmd.lang.java.rule.utils.LogBuild.buildLogXpath;
 
 import com.alibaba.p3c.pmd.lang.java.rule.AbstractLogRuleEx;
-import com.alibaba.p3c.pmd.lang.java.rule.utils.LogXpathBuild;
+import com.alibaba.p3c.pmd.lang.java.rule.utils.LogBuild;
 import java.util.List;
 import net.sourceforge.pmd.lang.ast.Node;
 import net.sourceforge.pmd.lang.java.ast.ASTArgumentList;
@@ -28,7 +28,7 @@ public class LogExceptionRule extends AbstractLogRuleEx {
             return super.visit(node, data);
         }
         String varName = node.getExceptionName();
-        String replace = buildLogXpath(loggerName, LogXpathBuild.ERROR) + "]";
+        String replace = buildLogXpath(loggerName, LogBuild.ERROR) + "]";
         try {
             List<Node> targetNodes = node.findChildNodesWithXPath(replace);
             for (Node targetNode : targetNodes) {

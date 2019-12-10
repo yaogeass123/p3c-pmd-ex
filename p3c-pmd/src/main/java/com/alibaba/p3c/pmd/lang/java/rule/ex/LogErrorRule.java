@@ -1,10 +1,10 @@
 package com.alibaba.p3c.pmd.lang.java.rule.ex;
 
-import static com.alibaba.p3c.pmd.lang.java.rule.utils.LogXpathBuild.buildExceptionSuffix;
-import static com.alibaba.p3c.pmd.lang.java.rule.utils.LogXpathBuild.buildLogXpath;
+import static com.alibaba.p3c.pmd.lang.java.rule.utils.LogBuild.buildExceptionSuffix;
+import static com.alibaba.p3c.pmd.lang.java.rule.utils.LogBuild.buildLogXpath;
 
 import com.alibaba.p3c.pmd.lang.java.rule.AbstractLogRuleEx;
-import com.alibaba.p3c.pmd.lang.java.rule.utils.LogXpathBuild;
+import com.alibaba.p3c.pmd.lang.java.rule.utils.LogBuild;
 import java.util.List;
 import net.sourceforge.pmd.lang.ast.Node;
 import net.sourceforge.pmd.lang.java.ast.ASTCatchStatement;
@@ -25,7 +25,7 @@ public class LogErrorRule extends AbstractLogRuleEx {
             return super.visit(node, data);
         }
         String varName = node.getExceptionName();
-        String replace = buildLogXpath(loggerName, LogXpathBuild.INFO) + buildExceptionSuffix(varName);
+        String replace = buildLogXpath(loggerName, LogBuild.INFO) + buildExceptionSuffix(varName);
         try {
             List<Node> targetNodes = node.findChildNodesWithXPath(replace);
             for (Node targetNode : targetNodes) {

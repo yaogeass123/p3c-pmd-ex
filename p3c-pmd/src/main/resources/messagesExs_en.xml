@@ -57,4 +57,16 @@ Note: If attribute is null or does not exist, ${var} will be shown directly on w
   <entry key="java.ex.LogExceptionRule.rule.desc">
     <![CDATA[异常信息应该包括两类信息：案发现场信息和异常堆栈信息。不要把堆栈信息吃掉。]]>
   </entry>
+  <entry key="java.ex.LogOutputStringRule.rule.msg">
+    <![CDATA[打印日志信息请使用占位符方式]]>
+  </entry>
+  <entry key="java.ex.LogOutputStringRule.rule.desc">
+    <![CDATA[【强制】对 trace/debug/info 级别的日志输出，必须使用 条件输出形式或者使用占位符的方式。
+
+    反例：
+        LOGGER.debug("Processing trade with id: " + id + " and symbol: " + symbol);
+        如果日志级别是 warn，上述日志不会打印，但是会执行字符串拼接操作，如果 symbol 是对象， 会执行 toString()方法，浪费了系统资源，执行了上述操作，最终日志却没有打印。
+    正例：
+        LOGGER.debug("Processing trade with id: {} and symbol : {} ", id, symbol); ]]>
+  </entry>
 </properties>

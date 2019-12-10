@@ -10,13 +10,15 @@
 		  protected final Logger logger = LoggerFactory.getLogger(getClass());
       protected final Logger ttt = LoggerFactory.getLogger(getClass());
       public void fun () {
-        try {
-          t();
-        } catch (Exception e) {
-          logger.info("", e);
-          ttt.info(e);
-          ttt.error(e);
-        }
+        String a;
+        String b;
+        logger.info();
+        logger.debug("1"+"2");
+        logger.trace(a+b);
+        ttt.info(a+"1");
+        ttt.trace(1+a+b);
+        ttt.error(a+b);
+        logger.warn(a+b);
       }
     }
     ]]>
@@ -24,8 +26,8 @@
 
   <test-code>
     <description>Use test</description>
-    <expected-problems>2</expected-problems>
-    <expected-linenumbers>10,11</expected-linenumbers>
+    <expected-problems>4</expected-problems>
+    <expected-linenumbers>10,11,12,13</expected-linenumbers>
     <code-ref id="LogOutputStringRule-test"/>
   </test-code>
 

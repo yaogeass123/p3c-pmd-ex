@@ -59,14 +59,14 @@ public class LogOutputStringRule extends AbstractLogRuleEx {
                     if (prefix.jjtGetChild(0) instanceof ASTName) {
                         ASTName name = (ASTName) prefix.jjtGetChild(0);
                         if (STRING_CLASS.equals(name.getType().getName())) {
-                            addViolationWithMessage(data, node, MESSAGE_KEY_PREFIX);
+                            addViolationWithMessage(data, target.jjtGetChild(1), MESSAGE_KEY_PREFIX);
                             return;
                         }
                     }
                     if (prefix.jjtGetChild(0) instanceof ASTLiteral) {
                         ASTLiteral literal = (ASTLiteral) prefix.jjtGetChild(0);
                         if (STRING_CLASS.equals(literal.getType().getName())) {
-                            addViolationWithMessage(data, node, MESSAGE_KEY_PREFIX);
+                            addViolationWithMessage(data, target.jjtGetChild(1), MESSAGE_KEY_PREFIX);
                             return;
                         }
                     }

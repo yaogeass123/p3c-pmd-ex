@@ -47,4 +47,18 @@
     <priority>3</priority>
   </rule>
 
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.LogOutputStringRule" language="java"
+    message="java.ex.LogOutputStringRule.rule.msg"
+    name="LogOutputStringRule">
+    <description>java.ex.LogOutputStringRule.rule.desc</description>
+    <priority>3</priority>
+  </rule>
+
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.LogExceptionRule" language="java"
+    message="java.ex.LogExceptionRule.rule.msg"
+    name="LogExceptionRule">
+    <description>java.ex.LogExceptionRule.rule.desc</description>
+    <priority>3</priority>
+  </rule>
+
 </ruleset>

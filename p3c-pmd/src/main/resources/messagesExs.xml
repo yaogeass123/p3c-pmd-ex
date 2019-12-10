@@ -53,4 +53,10 @@
   <entry key="java.ex.EnumNameRuleVar.rule.desc">
     <![CDATA[枚举成员名称需要全大写]]>
   </entry>
+  <entry key="java.ex.LogExceptionRule.rule.msg">
+    <![CDATA[请打印异常堆栈信息]]>
+  </entry>
+  <entry key="java.ex.LogExceptionRule.rule.desc">
+    <![CDATA[异常信息应该包括两类信息：案发现场信息和异常堆栈信息。不要把堆栈信息吃掉。]]>
+  </entry>
 </properties>

@@ -25,7 +25,7 @@
   </code-fragment>
 
   <test-code>
-    <description>Use test</description>
+    <description>LogOutputStringRule test</description>
     <expected-problems>4</expected-problems>
     <expected-linenumbers>10,11,12,13</expected-linenumbers>
     <code-ref id="LogOutputStringRule-test"/>

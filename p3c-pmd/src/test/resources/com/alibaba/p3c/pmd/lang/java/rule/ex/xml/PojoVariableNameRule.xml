@@ -14,7 +14,7 @@
   </code-fragment>
 
   <test-code>
-    <description>Use test</description>
+    <description>PojoVariableNameRule test</description>
     <expected-problems>1</expected-problems>
     <expected-linenumbers>5</expected-linenumbers>
     <code-ref id="PojoVariableNameRule-test"/>

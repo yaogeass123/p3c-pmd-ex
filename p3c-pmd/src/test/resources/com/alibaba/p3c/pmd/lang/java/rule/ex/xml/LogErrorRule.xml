@@ -27,7 +27,7 @@
   </code-fragment>
 
   <test-code>
-    <description>Use test</description>
+    <description>LogErrorRule test</description>
     <expected-problems>2</expected-problems>
     <expected-linenumbers>10,11</expected-linenumbers>
     <code-ref id="LogErrorRule-test"/>

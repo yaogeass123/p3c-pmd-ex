@@ -32,7 +32,7 @@
   </code-fragment>
 
   <test-code>
-    <description>Use test</description>
+    <description>LogExceptionRule test</description>
     <expected-problems>4</expected-problems>
     <expected-linenumbers>10,11,13,21</expected-linenumbers>
     <code-ref id="LogExceptionRule-test"/>

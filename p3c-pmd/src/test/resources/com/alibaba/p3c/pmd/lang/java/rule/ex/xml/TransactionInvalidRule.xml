@@ -37,7 +37,7 @@
   </code-fragment>
 
   <test-code>
-    <description>Use test</description>
+    <description>TransactionInvalidRule test</description>
     <expected-problems>2</expected-problems>
     <expected-linenumbers>20,21</expected-linenumbers>
     <code-ref id="TransactionInvalidRule-test"/>

@@ -61,4 +61,11 @@
     <priority>3</priority>
   </rule>
 
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.CatchRuntimeExceptionRule" language="java"
+    message="java.ex.CatchRuntimeExceptionRule.rule.msg"
+    name="CatchRuntimeExceptionRule">
+    <description>java.ex.CatchRuntimeExceptionRule.rule.desc</description>
+    <priority>3</priority>
+  </rule>
+
 </ruleset>

@@ -34,8 +34,9 @@ public class ExRulesTest extends SimpleAggregatorTst {
 //        addRule(RULESET, "OptimisticUpdateRule");
 //        addRule(RULESET, "PojoVariableNameRule");
 //        addRule(RULESET, "EnumNameRule");
-        addRule(RULESET, "LogOutputStringRule");
+//        addRule(RULESET, "LogOutputStringRule");
 //        addRule(RULESET, "LogExceptionRule");
+        addRule(RULESET, "CatchRuntimeExceptionRule");
     }
 
 

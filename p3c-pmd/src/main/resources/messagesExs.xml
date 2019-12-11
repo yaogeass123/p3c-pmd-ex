@@ -71,4 +71,18 @@
     正例：
         LOGGER.debug("Processing trade with id: {} and symbol : {} ", id, symbol); ]]>
   </entry>
+  <entry key="java.ex.CatchRuntimeExceptionRule.rule.msg">
+    <![CDATA[可以通过预检查方式规避的 RuntimeException 异常不应该通过 catch 的方式来处理]]>
+  </entry>
+  <entry key="java.ex.CatchRuntimeExceptionRule.rule.desc">
+    <![CDATA[Java 类库中定义的可以通过预检查方式规避的 RuntimeException 异常不应该通过 catch 的方式来处理，
+    比如：NullPointerException，IndexOutOfBoundsException 等等。
+    正例： if (obj != null) {...}
+    反例：
+          try {
+              obj.method();
+          }
+          catch (NullPointerException e) {…}
+    ]]>
+  </entry>
 </properties>

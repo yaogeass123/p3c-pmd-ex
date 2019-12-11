@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://pmd.sourceforge.net/rule-tests"
+  xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests https://pmd.sourceforge.io/rule-tests_1_0_0.xsd">
+
+  <code-fragment id="TransactionInvalidRule-test"><![CDATA[
+  import com.dianwoba.dispatch.config.entity.Info;
+  @Component
+  public class DispatchableTimeCityManager {
+
+      Info info;
+      String i;
+
+      @Transactional (rollbackFor = Exception.class)
+      public void save(Info a, String i){
+          Info info;
+          infoMapper.insertSelective(info);
+      }
+
+      private void saveTwo(Info a){
+         int t;
+         if(i == 1) {
+            String t;
+            save();
+            info.setInfo("again");
+            this.save(a, t);
+            save(info, i);
+            this.info.save(a,t);
+          }
+      }
+
+      private int saveThree(){
+        Info info;
+      }
+  }
+  ]]>
+  </code-fragment>
+
+  <test-code>
+    <description>TransactionInvalidRule test</description>
+    <expected-problems>2</expected-problems>
+    <expected-linenumbers>20,21</expected-linenumbers>
+    <code-ref id="TransactionInvalidRule-test"/>
+  </test-code>
+
+</test-data>

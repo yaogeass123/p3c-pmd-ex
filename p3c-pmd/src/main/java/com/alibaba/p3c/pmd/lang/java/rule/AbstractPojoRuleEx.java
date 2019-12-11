@@ -26,7 +26,7 @@ import net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit;
  * @author zenghou.fw
  * @date 2016/11/25
  */
-public abstract class AbstractPojoRule extends AbstractAliRuleEx {
+public abstract class AbstractPojoRuleEx extends AbstractAliRuleEx {
 
     /**
      * filter for all POJO class,skip if no POJO.
@@ -48,7 +48,7 @@ public abstract class AbstractPojoRule extends AbstractAliRuleEx {
     /**
      * check contains POJO
      * @param node compilation unit
-     * @return
+     * @return boolean
      */
     private boolean hasPojoInJavaFile(ASTCompilationUnit node) {
         List<ASTClassOrInterfaceDeclaration> klasses = node.findDescendantsOfType(
@@ -61,7 +61,7 @@ public abstract class AbstractPojoRule extends AbstractAliRuleEx {
         return false;
     }
 
-    protected boolean isPojo(ASTClassOrInterfaceDeclaration node) {
+    private boolean isPojo(ASTClassOrInterfaceDeclaration node) {
         return PojoUtils.isPojo(node);
     }
 }

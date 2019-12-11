@@ -26,4 +26,46 @@
     <priority>1</priority>
   </rule>
 
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.OptimisticUpdateRule" language="java"
+    message="java.ex.OptimisticUpdateRule.rule.msg"
+    name="OptimisticUpdateRule">
+    <description>java.ex.OptimisticUpdateRule.rule.desc</description>
+    <priority>3</priority>
+  </rule>
+
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.PojoVariableNameRule" language="java"
+    message="java.ex.PojoVariableNameRule.rule.msg"
+    name="PojoVariableNameRule">
+    <description>java.ex.OptimisticUpdateRule.rule.desc</description>
+    <priority>3</priority>
+  </rule>
+
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.EnumNameRule" language="java"
+    message="java.ex.EnumNameRule.rule.msg"
+    name="EnumNameRule">
+    <description>java.ex.EnumNameRule.rule.desc</description>
+    <priority>3</priority>
+  </rule>
+
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.LogOutputStringRule" language="java"
+    message="java.ex.LogOutputStringRule.rule.msg"
+    name="LogOutputStringRule">
+    <description>java.ex.LogOutputStringRule.rule.desc</description>
+    <priority>3</priority>
+  </rule>
+
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.LogExceptionRule" language="java"
+    message="java.ex.LogExceptionRule.rule.msg"
+    name="LogExceptionRule">
+    <description>java.ex.LogExceptionRule.rule.desc</description>
+    <priority>3</priority>
+  </rule>
+
+  <rule class="com.alibaba.p3c.pmd.lang.java.rule.ex.CatchRuntimeExceptionRule" language="java"
+    message="java.ex.CatchRuntimeExceptionRule.rule.msg"
+    name="CatchRuntimeExceptionRule">
+    <description>java.ex.CatchRuntimeExceptionRule.rule.desc</description>
+    <priority>3</priority>
+  </rule>
+
 </ruleset>

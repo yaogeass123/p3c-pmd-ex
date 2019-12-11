@@ -29,5 +29,60 @@
   <entry key="java.ex.TransactionInvalidRule.rule.desc">
     <![CDATA[事务可能失效]]>
   </entry>
+  <entry key="java.ex.OptimisticUpdateRule.rule.msg">
+    <![CDATA[请使用乐观更新]]>
+  </entry>
+  <entry key="java.ex.OptimisticUpdateRule.rule.desc">
+    <![CDATA[请使用乐观更新]]>
+  </entry>
+  <entry key="java.ex.PojoVariableNameRule.rule.msg">
+    <![CDATA[POJO类中变量不要以is前缀]]>
+  </entry>
+  <entry key="java.ex.PojoVariableNameRule.rule.desc">
+    <![CDATA[POJO 类中布尔类型的变量，都不要加 is 前缀，否则部分框架解析会引起序列化错误]]>
+  </entry>
+  <entry key="java.ex.EnumNameRule.rule.msg">
+    <![CDATA[枚举类名带上 En 后缀]]>
+  </entry>
+  <entry key="java.ex.EnumNameRule.rule.desc">
+    <![CDATA[枚举类名带上 En 后缀]]>
+  </entry>
+  <entry key="java.ex.EnumNameRuleVar.rule.msg">
+    <![CDATA[枚举成员名称需要全大写]]>
+  </entry>
+  <entry key="java.ex.EnumNameRuleVar.rule.desc">
+    <![CDATA[枚举成员名称需要全大写]]>
+  </entry>
+  <entry key="java.ex.LogExceptionRule.rule.msg">
+    <![CDATA[请打印异常堆栈信息]]>
+  </entry>
+  <entry key="java.ex.LogExceptionRule.rule.desc">
+    <![CDATA[异常信息应该包括两类信息：案发现场信息和异常堆栈信息。不要把堆栈信息吃掉。]]>
+  </entry>
+  <entry key="java.ex.LogOutputStringRule.rule.msg">
+    <![CDATA[打印日志信息请使用占位符方式]]>
+  </entry>
+  <entry key="java.ex.LogOutputStringRule.rule.desc">
+  <![CDATA[【强制】对 trace/debug/info 级别的日志输出，必须使用 条件输出形式或者使用占位符的方式。
 
+    反例：
+        LOGGER.debug("Processing trade with id: " + id + " and symbol: " + symbol);
+        如果日志级别是 warn，上述日志不会打印，但是会执行字符串拼接操作，如果 symbol 是对象， 会执行 toString()方法，浪费了系统资源，执行了上述操作，最终日志却没有打印。
+    正例：
+        LOGGER.debug("Processing trade with id: {} and symbol : {} ", id, symbol); ]]>
+  </entry>
+  <entry key="java.ex.CatchRuntimeExceptionRule.rule.msg">
+    <![CDATA[可以通过预检查方式规避的 RuntimeException 异常不应该通过 catch 的方式来处理]]>
+  </entry>
+  <entry key="java.ex.CatchRuntimeExceptionRule.rule.desc">
+    <![CDATA[Java 类库中定义的可以通过预检查方式规避的 RuntimeException 异常不应该通过 catch 的方式来处理，
+    比如：NullPointerException，IndexOutOfBoundsException 等等。
+    正例： if (obj != null) {...}
+    反例：
+          try {
+              obj.method();
+          }
+          catch (NullPointerException e) {…}
+    ]]>
+  </entry>
 </properties>

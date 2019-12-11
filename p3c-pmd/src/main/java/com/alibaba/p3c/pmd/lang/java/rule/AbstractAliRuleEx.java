@@ -22,7 +22,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import net.sourceforge.pmd.RuleContext;
 import net.sourceforge.pmd.lang.ast.Node;
 import net.sourceforge.pmd.lang.java.ast.ASTCompilationUnit;
-import net.sourceforge.pmd.lang.java.rule.AbstractJavaRule;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -31,7 +30,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author caikang
  * @date 2016/11/20
  */
-public abstract class AbstractAliRuleEx extends AbstractJavaRule {
+public abstract class AbstractAliRuleEx extends AbstractAliRule {
 
     private static final Map<String, Boolean> TYPE_RESOLVER_MAP = new ConcurrentHashMap<>(16);
 

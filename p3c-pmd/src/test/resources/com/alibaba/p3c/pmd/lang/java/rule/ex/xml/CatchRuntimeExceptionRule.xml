@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://pmd.sourceforge.net/rule-tests"
+  xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests https://pmd.sourceforge.io/rule-tests_1_0_0.xsd">
+
+  <code-fragment id="CatchRuntimeExceptionRule-test"><![CDATA[
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+public class test {
+    private static final String PATTERN = "java\\.lang\\.[A-Za-z]*Exception";
+    public static void main(String[] args) {
+        try {
+           throw new NullPointerException();
+        } catch (TestException | NumberFormatException | NullPointerException e) {
+            System.out.println(e.getClass().getTypeName());
+        }
+    }
+
+}
+
+class TestException extends RuntimeException {
+
+    public TestException(String msg) {
+        super(msg);
+    }
+
+}
+    ]]>
+  </code-fragment>
+
+  <test-code>
+    <description>CatchRuntimeExceptionRule test</description>
+    <expected-problems>1</expected-problems>
+    <expected-linenumbers>8</expected-linenumbers>
+    <code-ref id="CatchRuntimeExceptionRule-test"/>
+  </test-code>
+
+</test-data>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://pmd.sourceforge.net/rule-tests"
+  xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests https://pmd.sourceforge.io/rule-tests_1_0_0.xsd">
+
+  <code-fragment id="PojoVariableNameRule-test"><![CDATA[
+  public class UndispatchedOrderInfoDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private Integer cityId;
+    private Long orderId;
+    private Boolean isFinished;
+  }
+  ]]>
+  </code-fragment>
+
+  <test-code>
+    <description>PojoVariableNameRule test</description>
+    <expected-problems>1</expected-problems>
+    <expected-linenumbers>5</expected-linenumbers>
+    <code-ref id="PojoVariableNameRule-test"/>
+  </test-code>
+
+</test-data>

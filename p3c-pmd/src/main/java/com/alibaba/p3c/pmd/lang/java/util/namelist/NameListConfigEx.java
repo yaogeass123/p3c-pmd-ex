@@ -15,31 +15,20 @@
  */
 package com.alibaba.p3c.pmd.lang.java.util.namelist;
 
-import java.util.List;
-import java.util.Map;
+import com.alibaba.p3c.pmd.lang.java.util.SpiLoader;
 
 /**
  * @author changle.lq
- * @date 2017/03/23
+ * @date 2017/03/27
  */
-public interface NameListService {
-    /**
-     * get name list
-     * @param className class name
-     * @param name type name
-     * @return  name list
-     */
-    List<String> getNameList(String className,String name);
+public class NameListConfigEx {
+    public static final NameListService NAME_LIST_SERVICE = getNameListService();
 
-    /**
-     * get config
-     * @param className class name
-     * @param name type name
-     * @param kClass  type of key
-     * @param vClass  type of value
-     * @param <K> type of key
-     * @param <V> type of value
-     * @return  name list
-     */
-    <K, V> Map<K, V> getNameMap(String className,String name,Class<K> kClass,Class<V> vClass);
+    private static NameListService getNameListService() {
+        NameListService instance  = SpiLoader.getInstance(NameListService.class);
+        if (instance == null) {
+            instance = new NameListServiceExImpl();
+        }
+        return instance;
+    }
 }

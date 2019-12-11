@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://pmd.sourceforge.net/rule-tests"
+  xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests https://pmd.sourceforge.io/rule-tests_1_0_0.xsd">
+
+  <code-fragment id="LogErrorRule-test"><![CDATA[
+    import org.slf4j.Logger;
+    import org.slf4j.LoggerFactory;
+		class DateFormatTest {
+		  protected final Logger logger = LoggerFactory.getLogger(getClass());
+      protected final Logger ttt = LoggerFactory.getLogger(getClass());
+      public void fun () {
+        try {
+          t();
+        } catch (Exception e) {
+          logger.info("", e);
+          ttt.info(e);
+          ttt.error(e);
+        }
+      }
+
+      private void dota(int e){
+        logger.info(e);
+      }
+    }
+    ]]>
+  </code-fragment>
+
+  <test-code>
+    <description>LogErrorRule test</description>
+    <expected-problems>2</expected-problems>
+    <expected-linenumbers>10,11</expected-linenumbers>
+    <code-ref id="LogErrorRule-test"/>
+  </test-code>
+
+</test-data>

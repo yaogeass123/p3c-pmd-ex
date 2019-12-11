@@ -23,7 +23,7 @@ import net.sourceforge.pmd.lang.rule.XPathRule;
  * @author caikang
  * @date 2017/05/25
  */
-public abstract class AbstractXpathRule extends XPathRule {
+public abstract class AbstractXpathRuleEx extends XPathRule {
     @Override
     public void setDescription(String description) {
         super.setDescription(I18nResourcesEx.getMessageWithExceptionHandled(description));

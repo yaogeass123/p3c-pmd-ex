@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://pmd.sourceforge.net/rule-tests"
+  xsi:schemaLocation="http://pmd.sourceforge.net/rule-tests https://pmd.sourceforge.io/rule-tests_1_0_0.xsd">
+
+  <code-fragment id="OptimisticUpdateRule-test"><![CDATA[
+  import com.dianwoba.dispatch.config.entity.Info;
+  @Component
+  public class DispatchableTimeCityManager {
+
+      @Resource
+      private CityMapper cityMapper;
+
+      private void update(Info a){
+         cityMapper.updateByPrimaryKeySelective(a);
+         this.shopMapper.updateByPrimaryKeySelective(a);
+      }
+
+  }
+  ]]>
+  </code-fragment>
+
+  <test-code>
+    <description>OptimisticUpdateRule test</description>
+    <expected-problems>2</expected-problems>
+    <expected-linenumbers>9,10</expected-linenumbers>
+    <code-ref id="OptimisticUpdateRule-test"/>
+  </test-code>
+
+</test-data>

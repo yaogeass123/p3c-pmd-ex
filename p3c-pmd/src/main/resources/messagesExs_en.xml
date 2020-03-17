@@ -10,28 +10,29 @@ Note: If attribute is null or does not exist, ${var} will be shown directly on w
         ]]>
   </entry>
   <entry key="java.ex.CheckNameAnnotationRule.rule.msg">
-    <![CDATA[@Value annotation does not use SpEL]]>
+    <![CDATA[value注解没有使用SpEL表达式]]>
   </entry>
   <entry key="java.ex.CheckNameAnnotationRule.rule.desc">
-    <![CDATA[@Value annotation does not use SpEL]]>
+    <![CDATA[建议：如果想使用外部注入值，请使用SpELl表达式]]>
   </entry>
   <entry key="java.ex.LogErrorRule.rule.msg">
-    <![CDATA[3]]>
+    <![CDATA[日志等级请使用error]]>
   </entry>
   <entry key="java.ex.LogErrorRule.rule.desc">
-    <![CDATA[3]]>
+    <![CDATA[若想打印错误日志，日志等级请使用error]]>
   </entry>
   <entry key="java.ex.TransactionInvalidRule.rule.msg">
-    <![CDATA[4]]>
+    <![CDATA[事务可能失效]]>
   </entry>
   <entry key="java.ex.TransactionInvalidRule.rule.desc">
-    <![CDATA[4]]>
+    <![CDATA[在同一个类中，方法B调用事务A,调用的是元对象的方法，而不是通过代理对象。
+    所以spring无法切到这次调用，也就是无法通过注解保证事务性。]]>
   </entry>
   <entry key="java.ex.OptimisticUpdateRule.rule.msg">
-    <![CDATA[5]]>
+    <![CDATA[请使用乐观更新]]>
   </entry>
   <entry key="java.ex.OptimisticUpdateRule.rule.desc">
-    <![CDATA[5]]>
+    <![CDATA[更新时请使用Example按照条件进行乐观更新]]>
   </entry>
   <entry key="java.ex.PojoVariableNameRule.rule.msg">
     <![CDATA[POJO类中变量不要以is前缀]]>

@@ -25,7 +25,7 @@ public class CatchRuntimeExceptionRule extends AbstractAliRuleEx {
     public Object visit(ASTCatchStatement node, Object data) {
 
         for (ASTType type : node.getCaughtExceptionTypeNodes()) {
-            Class e = type.getType();
+            Class<?> e = type.getType();
             if (e == null) {
                 continue;
             }

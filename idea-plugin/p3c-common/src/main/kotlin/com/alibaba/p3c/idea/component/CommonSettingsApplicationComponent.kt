@@ -20,6 +20,7 @@ import com.alibaba.p3c.idea.i18n.P3cBundle
 import com.alibaba.p3c.idea.util.HighlightInfoTypes
 import com.alibaba.p3c.idea.util.HighlightSeverities
 import com.alibaba.p3c.pmd.I18nResources
+import com.alibaba.p3c.pmd.I18nResourcesEx
 import com.alibaba.smartfox.idea.common.component.AliBaseApplicationComponent
 import com.intellij.codeInsight.daemon.impl.SeverityRegistrar
 import com.intellij.openapi.actionSystem.ActionManager
@@ -37,6 +38,7 @@ class CommonSettingsApplicationComponent(private val p3cConfig: P3cConfig) : Ali
         SeverityRegistrar.registerStandard(HighlightInfoTypes.MAJOR, HighlightSeverities.MAJOR)
 
         I18nResources.changeLanguage(p3cConfig.locale)
+        I18nResourcesEx.changeLanguage(p3cConfig.locale)
         val analyticsGroup = ActionManager.getInstance().getAction(analyticsGroupId)
         analyticsGroup.templatePresentation.text = P3cBundle.getMessage(analyticsGroupText)
     }

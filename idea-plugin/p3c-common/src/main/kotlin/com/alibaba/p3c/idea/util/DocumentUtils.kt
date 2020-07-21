@@ -15,6 +15,7 @@
  */
 package com.alibaba.p3c.idea.util
 
+import com.alibaba.p3c.idea.action.AliInspectionAction.Companion.logger
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.util.TextRange
 
@@ -32,6 +33,7 @@ object DocumentUtils {
         if (maxLine < line) {
             return -1
         }
+        //第n行的偏移量
         val lineOffset = document.getLineStartOffset(line - 1)
         return lineOffset + calculateRealColumn(document, line, pmdColumn)
     }
@@ -51,7 +53,7 @@ object DocumentUtils {
         val lineStartOffset = document.getLineStartOffset(docLine)
         val lineEndOffset = document.getLineEndOffset(docLine)
         val text = document.getText(TextRange(lineStartOffset, lineEndOffset))
-
+        //text 该line范围的string
         text.forEachIndexed { i, c ->
             if (c == '\t') {
                 realColumn -= minusSize
@@ -60,7 +62,6 @@ object DocumentUtils {
                 return@forEachIndexed
             }
         }
-
         return realColumn
     }
 }

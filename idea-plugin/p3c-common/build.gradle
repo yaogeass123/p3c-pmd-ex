@@ -38,6 +38,7 @@ ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
 dependencies {
     compile group: 'org.freemarker', name: 'freemarker', version: '2.3.25-incubating'
+    compile 'com.alibaba.p3c:p3c-pmd-ex:2.0.0-SNAPSHOT'
     compile 'com.alibaba.p3c:p3c-pmd:2.0.0'
     compile group: 'org.javassist', name: 'javassist', version: '3.21.0-GA'
 }
@@ -47,12 +48,12 @@ uploadArchives {
         mavenDeployer {
             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: findProperty('ossrhUsername'), password: findProperty('ossrhPassword'))
+            repository(url: "http://192.168.1.177:8081/nexus/content/repositories/snapshots/") {
+                authentication(userName: "deployment", password: "wodianni")
             }
 
-            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: findProperty('ossrhUsername'), password: findProperty('ossrhPassword'))
+            snapshotRepository(url: "http://192.168.1.177:8081/nexus/content/repositories/snapshots/") {
+                authentication(userName: "deployment", password: "wodianni")
             }
 
             pom.project {

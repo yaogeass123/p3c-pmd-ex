@@ -21,6 +21,7 @@ import com.alibaba.p3c.idea.inspection.standalone.AliDeprecationInspection
 import com.alibaba.p3c.idea.inspection.standalone.AliMissingOverrideAnnotationInspection
 import com.alibaba.p3c.idea.inspection.standalone.MapOrSetKeyShouldOverrideHashCodeEqualsInspection
 import com.alibaba.p3c.pmd.I18nResources
+import com.alibaba.p3c.pmd.I18nResourcesEx
 import com.alibaba.smartfox.idea.common.util.getService
 import com.beust.jcommander.internal.Lists
 import com.beust.jcommander.internal.Maps
@@ -112,6 +113,7 @@ class AliLocalInspectionToolProvider : InspectionToolProvider {
 
         init {
             I18nResources.changeLanguage(P3cConfig::class.java.getService().locale)
+            I18nResourcesEx.changeLanguage(P3cConfig::class.java.getService().locale)
             Thread.currentThread().contextClassLoader = AliLocalInspectionToolProvider::class.java.classLoader
             initPmdInspection()
             initNativeInspection()

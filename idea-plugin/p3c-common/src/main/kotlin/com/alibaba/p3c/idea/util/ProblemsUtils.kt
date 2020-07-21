@@ -15,6 +15,7 @@
  */
 package com.alibaba.p3c.idea.util
 
+import com.alibaba.p3c.idea.action.AliInspectionAction
 import com.alibaba.p3c.pmd.lang.java.rule.comment.AvoidCommentBehindStatementRule
 import com.intellij.codeInspection.InspectionManager
 import com.intellij.codeInspection.LocalQuickFix
@@ -89,19 +90,25 @@ object ProblemsUtils {
 
     private fun getEndElement(psiFile: PsiFile, psiElement: PsiElement, endOffset: Int): PsiElement {
         var endElement = psiFile.findElementAt(endOffset)
+        AliInspectionAction.logger.info("123: $endOffset")
+        AliInspectionAction.logger.info("456: ${endElement?.text}")
         if (endElement is PsiJavaToken && endElement.tokenType === ElementType.SEMICOLON) {
             endElement = psiFile.findElementAt(endOffset - 1)
+            AliInspectionAction.logger.info("1")
         }
         if (endElement is PsiIdentifier) {
+            AliInspectionAction.logger.info("2:${endElement.text}")
             return endElement
         }
         if (psiElement is PsiIdentifier) {
+            AliInspectionAction.logger.info("3:${psiElement.text}")
             return psiElement
         }
         if (endElement == null || endElement is PsiWhiteSpace
                 || psiElement.textRange.startOffset >= endElement.textRange.endOffset) {
             endElement = psiElement
         }
+        AliInspectionAction.logger.info("4:${endElement.text}")
         return endElement
     }
 
